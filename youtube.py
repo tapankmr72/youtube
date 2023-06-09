@@ -182,8 +182,8 @@ while looper==0:
           response = requests.post(docurl + "?chat_id={}".format(numbertext), files=files)
           print(response.text)
           file2 = path + "Audio" + ".mp3"
-          files2 = {'document': open(file2, 'rb')}
-          response = requests.post(docurl + "?chat_id={}".format(numbertext), files2=files2)
+          files = {'document': open(file2, 'rb')}
+          response = requests.post(docurl + "?chat_id={}".format(numbertext), files=files2)
           print(response.text)
           break
 
