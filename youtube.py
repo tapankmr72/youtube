@@ -1,6 +1,6 @@
 import time
-import re
-from regex import error
+#import re
+#from regex import error
 import pytube
 from pytube import Playlist, YouTube
 
@@ -9,7 +9,7 @@ from datetime import datetime,timedelta
 import json
 import urllib.request
 import requests
-import os
+#import os
 path = ""
 polltime=2
 pollgap=2
