@@ -173,7 +173,7 @@ while looper==0:
                              "disable_notification": False, "reply_to_message_id": None, "chat_id": numbertext}
               response = requests.post(texturl, json=payloadtext, headers=headers)
               break
-          message="Video Successfully Dowloaded.Now sending it to you in a moment..."
+          message="Successfully Dowloaded.Now sending it to you in a moment..."
           payloadtext = {"text": message + nametext, "disable_web_page_preview": True,
                          "disable_notification": False, "reply_to_message_id": None, "chat_id": numbertext}
           response = requests.post(texturl, json=payloadtext, headers=headers)
@@ -181,9 +181,9 @@ while looper==0:
           files = {'document': open(file, 'rb')}
           response = requests.post(docurl + "?chat_id={}".format(numbertext), files=files)
           print(response.text)
-          file = path + "Aideo" + ".mp3"
-          files = {'document': open(file, 'rb')}
-          response = requests.post(docurl + "?chat_id={}".format(numbertext), files=files)
+          file2 = path + "Audio" + ".mp3"
+          files2 = {'document': open(file2, 'rb')}
+          response = requests.post(docurl + "?chat_id={}".format(numbertext), files2=files2)
           print(response.text)
           break
 
