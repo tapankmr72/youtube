@@ -20,7 +20,7 @@ message = ""
 updatetext1=0
 token="5749368372:AAHGyZqSahxJkKwGi4qMoMfFVgo4Q70yYzY"
 headers = {"accept": "application/json","content-type": "application/json"}
-import openpyxl
+#import openpyxl
 photourl="https://api.telegram.org/bot"+token+"/sendPhoto"
 docurl="https://api.telegram.org/bot"+token+"/sendDocument"
 texturl="https://api.telegram.org/bot"+token+"/sendMessage"
