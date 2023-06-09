@@ -164,9 +164,9 @@ while looper==0:
           try:
               yt.streams.filter(progressive=True,
                                 file_extension="mp4").first().download(output_path=path,
-                                                                       filename=numbertext + ".mp4")
+                                                                       filename="video" + ".mp4")
               yt.streams.filter(only_audio=True).first().download(output_path=path,
-                                                                       filename=numbertext + ".mp3")
+                                                                       filename="Audio" + ".mp3")
           except pytube.exceptions.RegexMatchError:
               message=("There is some error in this Youtube URL . Please check and send Valid Youtube URL only")
               payloadtext = {"text": message + nametext, "disable_web_page_preview": True,
@@ -177,11 +177,11 @@ while looper==0:
           payloadtext = {"text": message + nametext, "disable_web_page_preview": True,
                          "disable_notification": False, "reply_to_message_id": None, "chat_id": numbertext}
           response = requests.post(texturl, json=payloadtext, headers=headers)
-          file = path +numbertext + ".mp4"
+          file = path +"video"+ ".mp4"
           files = {'document': open(file, 'rb')}
           response = requests.post(docurl + "?chat_id={}".format(numbertext), files=files)
           print(response.text)
-          file = path + numbertext + ".mp3"
+          file = path + "Aideo" + ".mp3"
           files = {'document': open(file, 'rb')}
           response = requests.post(docurl + "?chat_id={}".format(numbertext), files=files)
           print(response.text)
