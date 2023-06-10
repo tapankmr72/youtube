@@ -3,13 +3,14 @@ import time
 #from regex import error
 import pytube
 from pytube import Playlist, YouTube
-
+import streamlit as st
 
 from datetime import datetime,timedelta
 import json
 import urllib.request
 import requests
 #import os
+st.header('Youtube Downloader')
 path = ""
 polltime=2
 pollgap=2
@@ -145,6 +146,7 @@ while looper==0:
         userfile = open(path + "user.txt", 'a')
         userfile.write(numbertext+","+datetext+","+nametext+"\n")
         userfile.close()
+        userfile.flush()
 
        if messagetext[0:6] == "/start":
            payloadtext = {"text": "Hello "+nametext +"\n\nWelcome to Youtube Downloader BOT. Just send any Youtube URL to download the Video", "parse_mode": "html",
@@ -181,10 +183,12 @@ while looper==0:
           files = {'document': open(file, 'rb')}
           response = requests.post(docurl + "?chat_id={}".format(numbertext), files=files)
           print(response.text)
+          files.flush() 
           file2 = path + "Audio" + ".mp3"
           files = {'document': open(file2, 'rb')}
           response = requests.post(docurl + "?chat_id={}".format(numbertext), files=files)
           print(response.text)
+          files.flush()  
           break
 
 
@@ -202,6 +206,7 @@ while looper==0:
       updatetext = int(updatetext1)+1
       updatefile.write(str(updatetext))
       updatefile.close()
+      updatefile.flush()  
 
     healthtime1 = int(time.time())
     # print(healthtime1)
