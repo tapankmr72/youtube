@@ -206,7 +206,7 @@ while looper==0:
       updatetext = int(updatetext1)+1
       updatefile.write(str(updatetext))
       updatefile.close()
-      updatefile.flush()  
+      #updatefile.flush()  
 
     healthtime1 = int(time.time())
     # print(healthtime1)
