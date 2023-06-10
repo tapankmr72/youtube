@@ -140,13 +140,13 @@ while looper==0:
        print("callbacktext:",callbacktext)
        userfile = open(path + "user.txt", 'r',encoding='utf-8', errors='ignore')
        usertext=userfile.read()
-       userfile.close
+       userfile.close()
        find1=usertext.find(numbertext)
        if find1==-1:
         userfile = open(path + "user.txt", 'a')
         userfile.write(numbertext+","+datetext+","+nametext+"\n")
         userfile.close()
-        userfile.flush()
+        #userfile.flush()
 
        if messagetext[0:6] == "/start":
            payloadtext = {"text": "Hello "+nametext +"\n\nWelcome to Youtube Downloader BOT. Just send any Youtube URL to download the Video", "parse_mode": "html",
