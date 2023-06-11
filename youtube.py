@@ -209,7 +209,7 @@ while looper==0:
 
     healthtime1 = int(time.time())
     # print(healthtime1)
-    if healthtime1 - healthtime > 300:
+    if healthtime1 - healthtime > 3600:
         payloadtext = {"text": healthmessage, "parse_mode": "html", "disable_web_page_preview": False,
                        "disable_notification": False, "reply_to_message_id": None, "chat_id": replyto}
         response = requests.post(texturl, json=payloadtext, headers=headers)
