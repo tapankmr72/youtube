@@ -1,15 +1,13 @@
 import streamlit as st
 import time
-#import re
-#from regex import error
 import pytube
 from pytube import Playlist, YouTube
 from datetime import datetime,timedelta
 import json
 import urllib.request
 import requests
-#import os
-st.header('Youtube Downloader')
+import re
+from regex import error
 path = ""
 polltime=2
 pollgap=2
@@ -18,9 +16,8 @@ replyto="5560841599"
 looper=0
 message = ""
 updatetext1=0
-token="5749368372:AAHGyZqSahxJkKwGi4qMoMfFVgo4Q70yYzY"
+token="5805960724:AAHKv7Y-7UInDwN92SsdtTxUeDAONZV5j6k"
 headers = {"accept": "application/json","content-type": "application/json"}
-#import openpyxl
 photourl="https://api.telegram.org/bot"+token+"/sendPhoto"
 docurl="https://api.telegram.org/bot"+token+"/sendDocument"
 texturl="https://api.telegram.org/bot"+token+"/sendMessage"
@@ -153,7 +150,7 @@ while looper==0:
                           "disable_notification": False, "reply_to_message_id": None, "chat_id": numbertext}
            response = requests.post(texturl, json=payloadtext, headers=headers)
            break
-       elif messagetext[0:15] == "https://youtube" or messagetext[0:13] == "https://youtu":
+       elif messagetext[0:15] == "https://youtube" or messagetext[0:13] == "https://youtu"  :
           spcfind=messagetext.find("entities")
           if spcfind!=-1:
              messagetext=messagetext[0:spcfind-4]
@@ -164,8 +161,8 @@ while looper==0:
 
           try:
               yt.streams.filter(progressive=True,
-                                file_extension="mp4").first().download(output_path=path,
-                                                                       filename="video" + ".mp4")
+                                 file_extension="mp4").first().download(output_path=path,
+                                                                        filename="video" + ".mp4")
               yt.streams.filter(only_audio=True).first().download(output_path=path,
                                                                        filename="Audio" + ".mp3")
           except pytube.exceptions.RegexMatchError:
@@ -182,12 +179,12 @@ while looper==0:
           files = {'document': open(file, 'rb')}
           response = requests.post(docurl + "?chat_id={}".format(numbertext), files=files)
           print(response.text)
-          #files.flush() 
+          #files.flush()
           file2 = path + "Audio" + ".mp3"
           files = {'document': open(file2, 'rb')}
           response = requests.post(docurl + "?chat_id={}".format(numbertext), files=files)
           print(response.text)
-          #files.flush()  
+          #files.flush()
           break
 
 
@@ -205,7 +202,7 @@ while looper==0:
       updatetext = int(updatetext1)+1
       updatefile.write(str(updatetext))
       updatefile.close()
-      #updatefile.flush()  
+      #updatefile.flush()
 
     healthtime1 = int(time.time())
     # print(healthtime1)
