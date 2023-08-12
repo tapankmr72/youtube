@@ -6,8 +6,8 @@ from datetime import datetime,timedelta
 import json
 import urllib.request
 import requests
-import re
-from regex import error
+#import re
+#from regex import error
 path = ""
 polltime=2
 pollgap=2
